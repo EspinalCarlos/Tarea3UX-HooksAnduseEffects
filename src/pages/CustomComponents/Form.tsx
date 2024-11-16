@@ -48,6 +48,10 @@ const Form = () => {
         setSelectedTodos(new Set());
     };
 
+    const handleAllDeletionChores = () =>{
+        setTodos([]);
+    }
+
 
     const getImageSrc = () => {
         if (todos.length === 0) {
@@ -55,7 +59,7 @@ const Form = () => {
         } else if (todos.length <= 5) {
             return '/gat.png';
         } else {
-            return '/large_list.png'; 
+            return '/ga.webp';
         }
     };
 
@@ -67,7 +71,7 @@ const Form = () => {
                     position: 'relative',
                     backgroundColor: 'grey',
                     width: '800px',
-                    height: '900px',
+                    height: '800px',
                     maxHeight: '100%',
 
                 }
@@ -131,10 +135,8 @@ const Form = () => {
 
                             marginLeft: '20px',
                             marginTop: '5px',
-                            color: 'white',
-                            padding: '10px',
-                            paddingRight: '50px',
-                            borderRadius: '20px',
+                            padding: '9px',
+                            borderRadius: '10px',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -180,17 +182,20 @@ const Form = () => {
             }}>
                 <button type='button' className="btn btn-outline-light"
                  onClick={handleCompleteSelectedChores}>Complete Selected Chores</button>
-                <button type='button' className="btn btn-outline-light">Complete All Chores</button>
+                <button type='button' className="btn btn-outline-light"
+                onClick={handleAllDeletionChores}>Complete All Chores</button>
                 
             </div>
             <div id= 'imagenGato'
             style={{
                 position: 'absolute',
-                left: '60%'
+                left: '60%',
+                bottom: '350px'
             }}>
                 <img src = {getImageSrc()}
                 style={{
                     height: '250px',
+                    borderRadius: '20px',
                 }}></img>
             </div>
         </div>
